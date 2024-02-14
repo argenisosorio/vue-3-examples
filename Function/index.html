@@ -1,25 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <title>Hello world!</title>
-    <!--script src="https://unpkg.com/vue@3/dist/vue.global.js"></!--script-->
     <script src="../vue/vue.global.js"></script>
+    <title>My first Vue page</title>
 </head>
 <body>
-    <div id="app">{{ message }}</div>
+    <div id="app">
+        <button @click="myFunction()">Click me!</button>
+    </div>
     <script>
         const { createApp, ref } = Vue
 
         createApp({
             setup() {
-                const message = ref('Hello world!')
+                const myFunction = () => {
+                    alert("Hello!");
+                }
 
                 return {
-                    message
+                    myFunction
                 }
             }
         }).mount('#app')
+
     </script>
 </body>
 </html>
