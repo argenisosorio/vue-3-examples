@@ -9,14 +9,14 @@
         <form method="post" @submit.prevent="login">
             <label class="label">Username</label>
             <input
-                v-model="username"
+                v-model="record.username"
                 type="username"
                 name="username"
             />
             <br>
             <label class="label">Password</label>
             <input
-                v-model="password"
+                v-model="record.password"
                 type="password"
                 name="password"
             />
@@ -29,18 +29,19 @@
 
         createApp({
             setup() {
-                const username = ref('');
-                const password = ref('');
+                const record = ref({
+                    username: '',
+                    password: '',
+                });
 
                 const login = () => {
-                    console.log(username.value);
-                    console.log(password.value);
+                    console.log(record.value.username);
+                    console.log(record.value.password);
                 }
 
                 return {
                     login,
-                    username,
-                    password
+                    record
                 }
             }
         }).mount('#app')

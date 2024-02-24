@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My first Vue page</title>
+    <script src="../vue/vue.global.js"></script>
+    <style>
+        img {
+            width: 70px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Example 'v-for' to create images</h1>
+
+<p>
+    The 'v-for' directive is used to create images based on the 'manyFoods'
+    array in the Vue instance.
+</p>
+
+<div id="app">
+    <div>
+        <img v-for="x in manyFoods" v-bind:src="x">
+    </div>
+</div>
+
+<script>
+    const app = Vue.createApp({
+    data() {
+        return {
+            manyFoods: [
+                'https://www.w3schools.com/vue/img_burrito.svg',
+                'https://www.w3schools.com/vue/img_burrito.svg',
+                'https://www.w3schools.com/vue/img_burrito.svg'
+            ]
+        }
+    }
+    })
+    
+    app.mount('#app')
+</script>
+
+</body>
+</html>

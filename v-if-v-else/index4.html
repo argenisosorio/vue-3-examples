@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>'v-if' con includes</title>
+    <script src="../vue/vue.global.js"></script>
+    <style>
+    #app {
+        border: dashed black 1px;
+        width: 160px;
+        padding: 0 20px;
+        font-weight: bold;
+        background-color: lightgreen;
+    }
+    </style>
+</head>
+<body>
+
+<p>
+    En este ejemplo, 'v-if' utiliza un método 'includes()' en lugar de un
+    operador de comparación.
+</p>
+
+<p>'v-if' analiza la propiedad 'text' buscando la palabra pizza.</p>
+
+<div id="app">
+    <p v-if="text.includes('pizza')">El texto incluye la palabra 'pizza'</p>
+    <p v-else>El texto no incluye la palabra 'pizza'</p>
+</div>
+
+<script>
+    const app = Vue.createApp({
+        data() {
+            return {
+                text: 'I like pizza.'
+            }
+        }
+    })
+    app.mount('#app')
+</script>
+
+</body>
+</html>
