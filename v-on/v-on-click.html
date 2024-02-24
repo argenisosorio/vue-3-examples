@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Conteo</title>
+    <script src="../vue/vue.global.js"></script>
+    <style>
+        #app {
+            border: dashed black 1px;
+            width: 200px;
+            padding: 20px;
+        }
+        img {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Counteo</h1>
+
+<div id="app">
+    <p>{{ "Conteo: " + count }}</p>
+    <button v-on:click="count++">+</button>
+    <br>
+    <button v-on:click="count--">-</button>
+</div>
+
+<script>
+    const app = Vue.createApp({
+        data() {
+            return {
+                count: 0
+            }
+        }
+    })
+    app.mount('#app')
+</script>
+
+</body>
+</html>

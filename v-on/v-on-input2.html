@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>v-on:input</title>
+    <script src="vue/vue.global.js"></script>
+</head>
+<body>
+    <h2>
+        La directiva v-on se usa en la etiqueta textarea para escuchar el
+        evento 'input' que ocurre cada vez que hay un cambio en el texto dentro
+        del elemento textarea.
+    </h2>
+    <div id="app">
+        <textarea
+            v-on:input="writeText"
+            rows="8"
+            cols="30"
+            placeholder="Escriba..."
+        ></textarea>
+        <br>
+        <span>{{ text }}</span>
+    </div>
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    text: ''
+                }
+            },
+            methods: {
+                writeText(event) {
+                    this.text = event.target.value
+                }
+            }
+        })
+        app.mount('#app')
+    </script>
+</body>
+</html>

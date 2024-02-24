@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Count Input Events</title>
+    <script src="../vue/vue.global.js"></script>
+    <style>
+        #app {
+            border: dashed black 1px;
+            width: 200px;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h2>
+        Utilice v-on:input para realizar una acción cuando el elemento reciba una
+        entrada, como presionar una tecla dentro de un campo de texto.
+    </h2>
+    <p>Count los eventos input</p>
+    <div id="app">
+        <input type="text" v-on:input="inpCount++" placeholder="Escribe...">
+        <p>{{ 'Eventos input ocurridos: '+inpCount }}</p>
+    </div>
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    inpCount: 0
+                }
+            }
+        })
+        app.mount('#app')
+    </script>
+</body>
+</html>

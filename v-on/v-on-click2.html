@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Light Switch</title>
+    <script src="../vue/vue.global.js"></script>
+    <style>
+        #lightDiv {
+            position: relative;
+            width: 150px;
+            height: 150px;
+        }
+
+        #lightDiv > div {
+            position: absolute;
+            top: 10%;
+            left: 10%;
+            width: 80%;
+            height: 80%;
+            border-radius: 50%;
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <h1>Example: Light Switch</h1>
+    <p>
+        La directiva v-on se utiliza en la etiqueta del botón para escuchar el
+        evento de "clic". Cuando se produce el evento 'clic', la propiedad de
+        datos 'lightOn' se alterna entre 'verdadero' y 'falso', lo que hace que
+        el div amarillo sea visible/oculto.
+    </p>
+    <div id="app">
+        Bombilla
+        <span v-if="lightOn">
+            encendida
+        </span>
+        <span v-else>
+            apagada
+        </span>
+        <br>
+        <div id="lightDiv">
+            <div v-show="lightOn"></div>
+        </div>
+        <button v-on:click="lightOn =! lightOn">Switch</button>
+    </div>
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    lightOn: true
+                }
+            }
+        })
+        app.mount('#app')
+    </script>
+</body>
+</html>

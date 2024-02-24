@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Click To Run Method</title>
+    <script src="vue/vue.global.js"></script>
+    <style>
+        #app {
+            border: black dashed 1px;
+            width: 200px;
+            padding: 0 20px 20px 20px;
+        }
+        #app > div {
+            width: 140px;
+            height: 60px;
+            background-color: lightgreen;
+            padding: 20px;
+            font-weight: bold;
+            font-family: 'Courier New', Courier, monospace;
+        }
+    </style>
+</head>
+<body>
+<h2>
+    La directiva v-on se usa en el elemento "<div>" para escuchar el evento
+    'clic'. Cuando se produce el evento 'clic', se llama al método 'writeText' y
+    se cambia el texto.
+</h2>
+
+<p>Click para ejecutar el método</p>
+
+<div id="app">
+    <p>Haga clic en el cuadro:</p>
+    <div v-on:click="changeText">
+        {{ text }}
+    </div>
+</div>
+
+<script>
+    const app = Vue.createApp({
+        data() {
+            return {
+                text: 'Hello'
+            }
+        },
+        methods: {
+            changeText() {
+                this.text = 'Hello World!'
+            }
+        }
+    })
+    app.mount('#app')
+</script>
+</body>
+</html>

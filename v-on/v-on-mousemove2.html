@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mouse Pointer Position</title>
+    <script src="vue/vue.global.js"></script>
+    <style>
+        #app {
+            border: black dashed 1px;
+            width: 200px;
+            padding: 0 20px 20px 20px;
+        }
+        #app > div {
+            width: 160px;
+            height: 80px;
+            background-color: lightcoral;
+            padding: 20px;
+        }
+        #app span {
+            font-weight: bold;
+            font-family: 'Courier New', Courier, monospace;
+        }
+    </style>
+</head>
+<body>
+<p>
+    La directiva v-on se usa en el elemento <div> para escuchar el evento
+    'mousemove'.  Cuando ocurre el evento 'mousemove', se llama al método
+    'mousePos' y el objeto del evento se envía con el método de forma
+    predeterminada para que podamos obtener la posición del puntero del
+    mouse.
+</p>
+<p>
+    Debemos usar this, prefijo para hacer referencia a "xPos" dentro de la
+    propiedad de datos de la instancia de Vue del método.
+</p>
+
+<h1>Ejemplo: Posición del puntero del mouse</h1>
+
+<div id="app">
+    <p>Mueva el puntero del mouse sobre el cuadro:</p>
+    <div v-on:mousemove="mousePos">
+        <span>xPos: {{ xPos }}</span><br><span>yPos: {{ yPos }}</span>
+    </div>
+</div>
+
+<script>
+    const app = Vue.createApp({
+        data() {
+            return {
+                xPos: 0,
+                yPos: 0
+            }
+        },
+        methods: {
+            mousePos(event) {
+                this.xPos = event.offsetX
+                this.yPos = event.offsetY
+            }
+        }
+    })
+    app.mount('#app')
+</script>
+
+</body>
+</html>

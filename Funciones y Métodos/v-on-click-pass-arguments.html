@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Count</title>
+    <script src="vue/vue.global.js"></script>
+</head>
+<body>
+<h1>Pasando argumentos al método addMoose()</h1>
+<div id="app">
+    <p>{{ "Count: " + count }}</p>
+    <button v-on:click="addMoose(1)">+1</button>
+    <button v-on:click="addMoose(5)">+5</button>
+    <button v-on:click="addMoose(-1)">-1</button>
+</div>
+
+<script>
+    const app = Vue.createApp({
+        data() {
+            return {
+                count: 0
+            }
+        },
+        methods: {
+            addMoose(number) {
+                this.count+=number
+            }
+        }
+    })
+    app.mount('#app')
+</script>
+
+</body>
+</html>
