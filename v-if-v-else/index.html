@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Typewriters</title>
+    <script src="../vue/vue.global.js"></script>
+    <style>
+        #app {
+            border: dashed black 1px;
+            width: 130px;
+            padding-left: 20px;
+            font-weight: bold;
+            background-color: lightgreen;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Example with 'v-if' and 'v-else'</h1>
+
+<p>
+    Intente cambiar el valor 'typewritersInStock' en la instancia de Vue de
+    'verdadero' a 'falso' y ejecute el código nuevamente.
+</p>
+
+<div id="app">
+    <p v-if="typewritersInStock">
+        in stock
+    </p>
+    <p v-else>
+        not in stock
+    </p>
+</div>
+
+<script>
+    const app = Vue.createApp({
+        data() {
+            return {
+                typewritersInStock: true
+            }
+        }
+    })
+    app.mount('#app')
+</script>
+
+</body>
+</html>

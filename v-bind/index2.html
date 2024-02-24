@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Hello world!</title>
+    <script src="../vue/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p>
+            {{ message }}
+        </p>
+        <img v-bind:src="url">
+    </div>
+    <script>
+        const { createApp, ref } = Vue
+
+        createApp({
+            setup() {
+                const message = "El navegador encuentra el valor del atributo 'src' de la instancia de Vue con el uso de 'v-bind'.";
+                const url = "https://www.w3schools.com/vue/img_beach3.jpg";
+                return {
+                    url,
+                    message
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+</html>

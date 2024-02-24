@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>v-bind background-color</title>
+    <script src="../vue/vue.global.js"></script>
+    <style>
+        #app > div {
+        width: 200px;
+        padding: 20px;
+        border: dashed black 1px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Example: 'v-bind' with Conditional Background Color</h1>
+
+<p>
+    El navegador establece el color de fondo con  según el valor de
+    'bgVal' en la instancia de Vue.
+</p>
+
+<div id="app">
+    <div v-bind:style="{ backgroundColor: isImportant ? 'lightcoral' : 'lightgray' }">
+        Importancia basada en el color de fondo.
+    </div>
+</div>
+
+<script>
+    const app = Vue.createApp({
+        data() {
+            return {
+                isImportant: true
+            }
+        }
+    })
+    app.mount('#app')
+</script>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>v-bind font-size</title>
+    <script src="vue/vue.global.js"></script>
+    <style>
+        #app > div {
+        width: 200px;
+        padding: 20px;
+        border: dashed black 1px;
+        background-color: lightcoral;
+        }
+    </style>
+</head>
+<body>
+
+<h1>'v-bind' Font Size Example</h1>
+
+<p>El navegador establece el tamaño de fuente en píxeles según el valor numérico de 'tamaño' en la instancia de Vue.</p>
+
+<div id="app">
+    <div v-bind:style="{ fontSize: size + 'px' }">Text example</div>
+    <div v-bind:style="{ fontSize2: size2 + 'px' }">Text example</div>
+</div>
+
+<script>
+    const app = Vue.createApp({
+        data() {
+            return {
+                size: 28,
+                size2: 14
+            }
+        }
+    })
+    app.mount('#app')
+</script>
+
+</body>
+</html>

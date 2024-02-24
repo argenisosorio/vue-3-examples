@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>v-bind background-color</title>
+    <script src="../vue/vue.global.js"></script>
+    <style>
+        #app > div {
+            width: 200px;
+            padding: 20px;
+            border: dashed black 1px;
+        }
+        .myClass {
+            background-color: lightcoral;
+        }
+        .myClass2 {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Example</h1>
+<p>'v-bind' se utiliza para asignar clases con verdadero/falso.</p>
+<p>El navegador establece la clase 'myClass' en la etiqueta div cuando se establece en 'true'.</p>
+
+<div id="app">
+    <div v-bind:class="{ myClass: true }">
+        XXX
+    </div>
+    <div v-bind:class="{ myClass2: false }">
+        yyy
+    </div>
+</div>
+
+<script>
+    const app = Vue.createApp({
+        // The Vue instance is empty
+    })
+    app.mount('#app')
+</script>
+
+</body>
+</html>

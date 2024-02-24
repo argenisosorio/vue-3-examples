@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>v-bind background-color</title>
+    <script src="../vue/vue.global.js"></script>
+    <style>
+        #app > div {
+            width: 200px;
+            padding: 20px;
+            border: dashed black 1px;
+            background-color: lightcoral;
+        }
+    </style>
+</head>
+<body>
+
+<h1>'v-bind' Background Color Example</h1>
+<p>El navegador establece el color de fondo según el valor de 'bgVal' en la instancia de Vue.</p>
+
+<div id="app">
+    <div v-bind:style="{ backgroundColor: bgVal }">XXX.</div>
+</div>
+
+<script>
+    const app = Vue.createApp({
+        data() {
+            return {
+                bgVal: '#808080'
+                // bgVal: 'red'
+            }
+        }
+    })
+    app.mount('#app')
+</script>
+
+</body>
+</html>
