@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>v-on:keydown</title>
+    <script src="../vue/vue.global.js"></script>
+    <style>
+        #app {
+            border: black dashed 1px;
+            width: 200px;
+            padding: 0 20px 20px 20px;
+        }
+        #app > div {
+            width: 160px;
+            background-color: lightcoral;
+            padding: 20px;
+        }
+        #app span {
+            color: black;
+            font-weight: bold;
+            font-family: 'Courier New', Courier, monospace;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <p>Presione 'Ctrl' y 'S' en combinación para generar una alerta:</p>
+    <textarea
+        cols="20"
+        rows="3"
+        v-on:keydown.ctrl.s="createAlert"
+    ></textarea>
+</div>
+
+<script>
+    const app = Vue.createApp({
+        methods: {
+            createAlert(evt) {
+                alert("You pressed the 'S' and 'Ctrl' keys, in combination!")
+            }
+        }
+    })
+    app.mount('#app')
+</script>
+</body>
+</html>

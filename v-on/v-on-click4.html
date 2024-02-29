@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Left Mouse Button Event</title>
+    <script src="../vue/vue.global.js"></script>
+    <style>
+        #app {
+            border: black dashed 1px;
+            width: 200px;
+            padding: 20px;
+        }
+        #app > div {
+            width: 160px;
+            padding: 20px;
+            cursor: default;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div id="app">
+    <div
+        v-on:click.left="changeColor"
+        v-bind:style="{ backgroundColor:'hsl('+bgColor+',80%,80%)' }"
+    >
+        <p>Presione el botón izquierdo del mouse aquí para cambiar el color.</p>
+    </div>
+</div>
+
+<script>
+    const app = Vue.createApp({
+        data() {
+            return {
+                bgColor : 0
+            }
+        },
+        methods: {
+            changeColor() {
+                this.bgColor+=50;
+            }
+        }
+    })
+    app.mount('#app')
+</script>
+
+</body>
+</html>
